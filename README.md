@@ -14,3 +14,5 @@ Catching the PUT request that is sent when clicking that button shows that it is
 On my units, most fans won't start up correctly before I exceed 10%. However, the noise reduction going from 20% to 15% is already quite strong.
 
 If you have MQTT, this script can also expose the controls and sensors to Home Assistant.
+
+![screenshot](homeassistant.PNG)
