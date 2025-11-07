@@ -4,8 +4,9 @@ The Inspur SA5212M5 is an Alibaba-custom made series of servers with LGA3647 soc
 The BIOS is pretty heavily locked down on Inspur units.
 
 The same server design seems to have been submitted to multiple server vendors, known to me being Inspur, Inventec and Foxconn.
-They seem to be sold off at the moment, probably replaced with a better solution.
-I've yet to find a method of manually controlling the fans on the Inventec servers.
+They seem to be sold off at the moment and can be found online.
+
+I've yet to find a method of manually controlling the fans on the Inventec servers. I do not own a Foxconn variant of these, so I can't say for those.
 
 ## fanctl.py
 fanctl.py is a script I had Claude throw up that will keep the fans in check via HTTP over the webinterface.
