@@ -9,3 +9,5 @@ I've yet to find a method of manually controlling the fans on the Inventec serve
 ## fanctl.py
 fanctl.py is a shot script I had Claude throw up that will keep the fans in check via HTTP over the webinterface.
 Unfortunately I could not find an interface the BMC would expose that allows me to control the fans 'manually' (as in, implement my own fan curve).
+
+If you have MQTT, this script can also expose the controls and sensors to Home Assistant.
