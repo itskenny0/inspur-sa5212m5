@@ -9,6 +9,8 @@ The Alibaba BIOS contains a CMOS switch for showing settings that are normally h
 
 The running server had `0xFF`. No firmware patch or ME access is needed to select this switch.
 
+The [full menu map](menu-map/README.md) lists the static forms, setting help, choices, defaults and access conditions. Read [the risks and recovery notes](risks.md) before testing the switch or changing newly exposed controls.
+
 ## Status and scope
 
 The code has been disassembled and the relevant block has been emulated for all 256 possible byte values. A read-only check of the running server confirmed its board ID, BIOS version and current CMOS value. **The unlock has not been written or tested across a real reboot.** The first hardware test is planned for a spare server before trying it on production hardware.
@@ -49,11 +51,11 @@ The socket setup forms use `InspurSocketSetupFeatures[1]` for a much larger set 
 | Power | CPU C State Control, Package C State Control, CPU Thermal Management, CPU - Advanced PM Tuning, SOCKET RAPL Config |
 | Memory power | Memory Power & Thermal Configuration |
 
-The code also clears the PCH and management setup restriction variables. Their full menu coverage has not been mapped yet.
+The code also clears the PCH and management setup restriction variables. Their settings and conditions are included in the full menu map under Chipset and Server Mgmt.
 
 These are menu visibility changes inferred from the firmware forms. Other conditions still apply, including hardware presence, administrator access and Secure Boot state. The CSM page also contains boot-mode-dependent conditions. Exposing CSM Support does not itself disable CSM. The forms include an Overclocking page, but that does not establish that the installed processors support its controls.
 
-This switch does not remove every suppression. For example, the top-level Chipset reference in Setup has an unconditional `SuppressIf True`, independent of these variables. It should not be described as an unlock for every menu or setting.
+This switch does not remove every suppression. The Chipset reference inside Setup has an unconditional `SuppressIf True`, independent of these variables. However, AMITSE also contains a separate root entry pointing to Platform's Chipset form, alongside Processor, FPGA Configuration and Server Mgmt. The hidden Setup reference therefore does not establish that the whole Chipset area stays inaccessible. Which AMITSE menu table is selected still needs checking on hardware.
 
 ## Reading and changing the byte
 
@@ -72,7 +74,7 @@ mkdir -p bios/backups
 sudo python3 bios/cmos_menu.py unlock --backup bios/backups/spare-original.json
 ```
 
-This saves the original byte before writing `0x35`, then reads it back. It refuses to overwrite an existing backup, an already selected unlock, or a current value other than the observed stock `0xFF`. Keep the backup for that specific server. No BIOS flash contents or other setup values are written.
+This saves the original byte before writing `0x35`, then reads it back. It refuses to overwrite an existing backup, an already selected unlock, or a current value other than the observed stock `0xFF`. Keep the backup for that specific server. The script does not write BIOS flash or other setup variables. The kernel's NVRAM driver also maintains its standard checksum, as explained in the risk notes.
 
 Reboot manually when ready and enter BIOS Setup. For the first test, check the menus before changing other settings. CSM Support is the original target, but its behavior after saving still needs testing.
 

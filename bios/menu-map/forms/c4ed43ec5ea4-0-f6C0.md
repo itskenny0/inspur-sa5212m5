@@ -1,0 +1,63 @@
+# Intel(R) VMD technology
+
+[Menu index](../README.md) | [Module index](../c4ed43ec5ea4-0.md)
+
+Path: **Processor &gt; IIO Configuration &gt; Intel(R) VMD technology**
+
+Source: `SocketSetup`. Formset `516D5A04-C0D5-4657-B908-E4FB1D935EF0`, form `0x6C0`, PE/section offset `0xC5D3`.
+
+Root evidence: AMITSE GUID/form entry candidates.
+
+Paths come from static references and AMITSE candidates. Runtime menu selection, callbacks and installed hardware can change what is shown.
+
+## Incoming references
+
+- [IIO Configuration](c4ed43ec5ea4-0-f518.md) via Intel(R) VMD technology, offset `0xAF9C`.
+
+## Controls and information
+
+### Intel(R) VMD technology
+
+Type: `Subtitle`. Offset: `0xC5D9`.
+
+No explanatory firmware help is supplied. The label alone does not establish the control's full behavior.
+
+Access: CMOS vendor gate; other conditions may apply.
+
+Conditions on this path and item:
+
+- `SuppressIf` at `0x9BBF`: (InspurSocketSetupFeatures&#91;0x1&#93; == 0x1). Expression result: stock true; CMOS unlock false.
+
+### Intel(R) VMD for Volume Management Device on Socket 0
+
+Type: `Ref`. Offset: `0xC5FC`.
+
+No explanatory firmware help is supplied. The label alone does not establish the control's full behavior.
+
+Opens: [Intel(R) VMD for Volume Management Device on Socket 0](c4ed43ec5ea4-0-f6C1.md).
+
+Access: CMOS vendor gate; other conditions may apply.
+
+Question ID: `0x11F`. Question flags: `0x0` (none of the decoded flags).
+
+Conditions on this path and item:
+
+- `SuppressIf` at `0x9BBF`: (InspurSocketSetupFeatures&#91;0x1&#93; == 0x1). Expression result: stock true; CMOS unlock false.
+- `SuppressIf` at `0xC5F4`: (SocketIioConfig&#91;0x6&#93; == 0x0). Expression result: stock runtime-dependent; CMOS unlock runtime-dependent.
+
+### Intel(R) VMD for Volume Management Device on Socket 1
+
+Type: `Ref`. Offset: `0xC615`.
+
+No explanatory firmware help is supplied. The label alone does not establish the control's full behavior.
+
+Opens: [Intel(R) VMD for Volume Management Device on Socket 1](c4ed43ec5ea4-0-f6C2.md).
+
+Access: CMOS vendor gate; other conditions may apply.
+
+Question ID: `0x120`. Question flags: `0x0` (none of the decoded flags).
+
+Conditions on this path and item:
+
+- `SuppressIf` at `0x9BBF`: (InspurSocketSetupFeatures&#91;0x1&#93; == 0x1). Expression result: stock true; CMOS unlock false.
+- `SuppressIf` at `0xC60D`: (SocketIioConfig&#91;0x7&#93; == 0x0). Expression result: stock runtime-dependent; CMOS unlock runtime-dependent.
