@@ -3,6 +3,8 @@
 The Inspur SA5212M5 is an Alibaba-custom made series of servers with LGA3647 sockets and 24 DIMM slots.
 The BIOS is pretty heavily locked down on Inspur units.
 
+The 3.0.29 Alibaba BIOS contains a CMOS switch for its hidden setup menus. See [the BIOS research notes and scripts](bios/README.md) for the code analysis, expected settings, unlock and restore commands, and test status.
+
 The same server design seems to have been submitted to multiple server vendors, known to me being Inspur, Inventec and Foxconn.
 They seem to be sold off at the moment and can be found online.
 

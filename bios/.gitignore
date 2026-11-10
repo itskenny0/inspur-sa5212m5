@@ -1,0 +1,7 @@
+__pycache__/
+backups/
+*.bin
+*.rom
+*.dump/
+*.ifr.txt
+.venv/
